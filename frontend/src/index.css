@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cerope-blue focus:border-transparent transition-all text-base;
+    background-color: transparent;
+  }
+
+  .input-field-error {
+    @apply border-red-500 focus:ring-red-500;
+  }
+
+  .btn-primary {
+    @apply w-full bg-black text-white py-3 rounded-full font-medium hover:bg-gray-800 transition-all duration-200 text-base;
+  }
+
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .error-text {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  .link-text {
+    @apply text-cerope-blue hover:underline cursor-pointer;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .input-field {
+    @apply text-base;
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+  
+  select.input-field {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+  
+  /* Adjust header padding on mobile */
+  header {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  /* Center form on mobile */
+  .bg-white.rounded-3xl {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Tablet and Desktop - Show holographic dress properly aligned */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+  
+  .md\:items-start {
+    align-items: flex-start !important;
+  }
+  
+  .md\:justify-center {
+    justify-content: center !important;
+  }
+}
+
+/* Hide holographic dress and decorative elements on mobile */
+@media (max-width: 767px) {
+  .hidden.md\:flex,
+  .hidden.md\:block {
+    display: none !important;
+  }
+}
